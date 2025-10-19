@@ -1,0 +1,6 @@
+#SPDX-License-Identifier: MIT-0
+---
+# tasks file for first_role
+- name: Вывод сообщения
+  ansible.builtin.debug:
+    msg: "Роль работает"
