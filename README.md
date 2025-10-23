@@ -1,38 +1,32 @@
-Role Name
-=========
+# Автоматизация сетевой инфраструктуры с помощью Ansible
 
-A brief description of the role goes here.
+## О проекте
 
-Requirements
-------------
+Данный проект выполнен в рамках выпускной квалификационной работы на тему
+`Автоматизация сетей: настройка коммутаторов через системы управления конфигурациями`.
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+Проект демонстрирует практическое применение системы Ansible для автоматизации настройки сетевых коммутаторов.
+Основная цель — показать, как с помощью средств автоматизации можно упростить процесс конфигурации сетевого оборудования, минимизировать вероятность ошибок и ускорить развёртывание сетевой инфраструктуры.
 
-Role Variables
---------------
+## Цель и задачи проекта
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+Цель: разработать систему автоматизации базовой конфигурации сетевых коммутаторов с использованием Ansible.
 
-Dependencies
-------------
+Основные задачи:
+- Настроить среду Ansible для взаимодействия с сетевыми устройствами.
+- Создать inventory-файл с описанием коммутаторов.
+- Разработать playbook для выполнения базовых сетевых настроек.
+- Реализовать шаблоны конфигураций для гибкой настройки параметров.
+- Проверить корректность выполненных операций и задокументировать результаты.
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+## Краткое описание работы
+ 1. Ansible подключается к целевым устройствам по протоколу SSH, используя параметры, указанные в inventory.
+ 2. Выполняется playbook, содержащий набор задач для автоматической настройки коммутатора.
+ 3. Через шаблон создаются индивидуальные конфигурации для каждого устройства, основанные на переменных.
+ 4. После выполнения Ansible предоставляет отчёт о результате выполнения задач.
 
-Example Playbook
-----------------
+## Автор
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
-
-    - hosts: servers
-      roles:
-         - { role: username.rolename, x: 42 }
-
-License
--------
-
-BSD
-
-Author Information
-------------------
-
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+Монгуш Эртине Аясович <br>
+Выпускная квалификационная работа <br>
+Тувинский государственный университет <br>
