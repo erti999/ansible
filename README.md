@@ -30,7 +30,7 @@
 
 Пример структуры:
 ```
-ansibletest/
+roles/
 │
 ├─ first_role/     ← здесь находится роль
 │
@@ -46,7 +46,8 @@ ansibletest/
     - first_role
 ```
 
-2. Запустите playbook командой:
+2. Запустите playbook
+В терминале, находясь в директории roles/, выполните:
 ```bash
 ansible-playbook -i localhost, -c local test.yml
 ```
