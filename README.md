@@ -27,6 +27,7 @@
 
 ## Инструкция по запуску роли
 1. Создайте файл `test.yml` на один уровень выше, чем папка с ролью.
+
 Пример структуры:
 ```
 ansibletest/
@@ -49,6 +50,8 @@ ansibletest/
 ```bash
 ansible-playbook -i localhost, -c local test.yml
 ```
+<img width="977" height="553" alt="pl" src="https://github.com/user-attachments/assets/a85f2b18-b44a-4a2a-90a8-e8943f100ada" />
+
 
 ## Дополнительно
 Подробная документация и описание шагов разработки — во вкладке [Wiki проекта](http://github.com/erti999/ansible/wiki "Wiki проекта")
