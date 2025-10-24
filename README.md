@@ -47,7 +47,8 @@ roles/
 ```
 
 2. Запустите playbook
-В терминале, находясь в директории roles/, выполните:
+
+В терминале, находясь в директории `roles/`, выполните:
 ```bash
 ansible-playbook -i localhost, -c local test.yml
 ```
