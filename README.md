@@ -32,7 +32,7 @@
 - Права на выполнение команд в терминале.
 
 
-#### 1. Создайте файл `test.yml` на один уровень выше, чем папка с ролью.
+#### 1. Создайте файлы `test.yml` и `inventory.ini` на один уровень выше, чем папка с ролью.
 
 Пример структуры:
 ```
@@ -41,24 +41,35 @@ roles/
 ├─ first_role/     ← здесь находится роль
 │
 └─ test.yml        ← файл плейбука должен быть здесь
+│
+└─ inventory.ini   ← файл с инвентарем
+
 ```
 Содержимое `test.yml`:
 ```yaml
 ---
 - name: Проверка роли
-  hosts: localhost
-  connection: local
+  hosts: web
+  become: yes
   roles:
     - first_role
+```
+Содержимое `inventory.ini`:
+```
+[web]
+ubuntu1 ansible_host=192.168.100.50 ansible_user=ertine
+ubuntu2 ansible_host=192.168.100.51 ansible_user=ertine
+ubuntu3 ansible_host=192.168.100.52 ansible_user=ertine
 ```
 
 #### 2. Запустите playbook
 
 В терминале, находясь в директории `roles/`, выполните:
 ```bash
-ansible-playbook -i localhost, -c local test.yml
+ansible-playbook -i inventory.ini test.yml --ask-become-pass
 ```
-<img width="977" height="553" alt="pl" src="https://github.com/user-attachments/assets/a85f2b18-b44a-4a2a-90a8-e8943f100ada" />
+<img width="1047" height="735" alt="role" src="https://github.com/user-attachments/assets/f9eb5623-16dd-45cd-a467-354a5feea24a" />
+
 
 
 ## Дополнительно
