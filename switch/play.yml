@@ -1,0 +1,17 @@
+- name: Connect
+  hosts: qtech
+  gather_facts: false
+
+  tasks:
+    - name: login
+      ansible.builtin.expect:
+        command: "ssh -o StrictHostKeyChecking=no {{ ansible_user }}@{{ ansible_host }}"
+        responses:
+          "Password": "{{ ansible_password }}"
+        timeout: 17
+      register: result
+      ignore_errors: yes
+
+    - name: output
+      debug:
+        var: result.stdout_lines

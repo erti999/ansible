@@ -1,0 +1,66 @@
+2025-11-23 21:26:04,473 p=1302 u=erti n=ansible INFO| PLAY [Connect using expect to QTECH] **************************************************************************************************
+2025-11-23 21:26:04,479 p=1302 u=erti n=ansible INFO| TASK [Login and execute commands quickly] *********************************************************************************************
+2025-11-23 21:26:05,151 p=1310 u=erti n=ansible INFO| jsonrpc request: b'{"jsonrpc": "2.0", "method": "pop_messages", "id": "645e3e63-d701-46d5-8c7d-32a7c6879e05", "params": [[], {}]}'
+2025-11-23 21:26:05,152 p=1310 u=erti n=ansible INFO| jsonrpc response: {"jsonrpc": "2.0", "id": "645e3e63-d701-46d5-8c7d-32a7c6879e05", "result_type": "pickle", "result": "\udc80\u0004\udc95A\u0002\u0000\u0000\u0000\u0000\u0000\u0000]\udc94(\udc8c\u0004vvvv\udc94\udc8c\udcc4loaded cliconf plugin ansible_collections.cisco.ios.plugins.cliconf.ios from path /Users/erti/.ansible/collections/ansible_collections/cisco/ios/plugins/cliconf/ios.py for network_os cisco.ios.ios\udc94\udc86\udc94\udc8c\u0003log\udc94\udc8c\"network_os is set to cisco.ios.ios\udc94\udc86\udc94\udc8c\u0007warning\udc94\udc8c\udcd1Persistent connection logging is enabled for 192.168.0.30. This will log ALL interactions to /Users/erti/Desktop/switch/network.log and WILL NOT redact sensitive configuration like passwords. USE WITH CAUTION!\udc94\udc86\udc94h\u0001\udc8c\u0017ssh type is set to auto\udc94\udc86\udc94h\u0001\udc8c\u0016autodetecting ssh_type\udc94\udc86\udc94h\u0001\udc8c\u001dssh type is now set to libssh\udc94\udc86\udc94e."}
+2025-11-23 21:26:05,237 p=1302 u=erti n=ansible INFO| network_os is set to cisco.ios.ios
+2025-11-23 21:26:28,829 p=1302 u=erti n=ansible WARNING| [WARNING]: Persistent connection logging is enabled for 192.168.0.30. This will log ALL interactions to /Users/erti/Desktop/switch/network.log and WILL NOT redact sensitive configuration like passwords. USE WITH CAUTION!
+
+2025-11-23 21:26:28,829 p=1302 u=erti n=ansible ERROR| [ERROR]: Task failed: Module failed: non-zero return code
+Origin: /Users/erti/Desktop/switch/play.yml:6:7
+
+4
+5   tasks:
+6     - name: Login and execute commands quickly
+        ^ column 7
+
+
+2025-11-23 21:26:28,829 p=1302 u=erti n=ansible INFO| fatal: [qtech_switch01]: FAILED! => {"changed": true, "cmd": "ssh -o StrictHostKeyChecking=no ertine@192.168.0.30", "delta": "0:00:23.102417", "end": "2025-11-23 21:26:28.783549", "msg": "non-zero return code", "rc": 255, "start": "2025-11-23 21:26:05.681132", "stdout": "\r\nPassword(1-16 chars):*****\u001b[2J\u001b[1;1H\r\nqtech>", "stdout_lines": ["", "Password(1-16 chars):*****\u001b[2J\u001b[1;1H", "qtech>"]}
+2025-11-23 21:26:28,829 p=1302 u=erti n=ansible INFO| ...ignoring
+2025-11-23 21:26:28,831 p=1302 u=erti n=ansible INFO| TASK [Show output] ********************************************************************************************************************
+2025-11-23 21:26:28,907 p=1302 u=erti n=ansible INFO| ok: [qtech_switch01] => {
+    "result.stdout_lines": [
+        "",
+        "Password(1-16 chars):*****\u001b[2J\u001b[1;1H",
+        "qtech>"
+    ]
+}
+2025-11-23 21:26:28,909 p=1310 u=erti n=ansible INFO| jsonrpc request: b'{"jsonrpc": "2.0", "method": "reset", "id": "12e162da-e7ff-48fa-9011-5b3522f4f5ac", "params": [[], {}]}'
+2025-11-23 21:26:28,909 p=1310 u=erti n=ansible INFO| jsonrpc response: {"jsonrpc": "2.0", "id": "12e162da-e7ff-48fa-9011-5b3522f4f5ac", "result_type": "pickle", "result": "\udc80\u0004N."}
+2025-11-23 21:26:28,910 p=1302 u=erti n=ansible INFO| PLAY RECAP ****************************************************************************************************************************
+2025-11-23 21:26:28,910 p=1302 u=erti n=ansible INFO| qtech_switch01             : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=1   
+2025-11-23 21:26:29,011 p=1310 u=erti n=ansible INFO| resetting persistent connection for socket_path /Users/erti/.ansible/pc/461a6ad283
+2025-11-23 21:26:29,011 p=1310 u=erti n=ansible INFO| reset call on connection instance
+2025-11-23 21:26:29,011 p=1310 u=erti n=ansible INFO| shutdown complete
+2025-11-23 21:29:35,492 p=1364 u=erti n=ansible INFO| PLAY [Connect] ************************************************************************************************************************
+2025-11-23 21:29:35,497 p=1364 u=erti n=ansible INFO| TASK [login] **************************************************************************************************************************
+2025-11-23 21:29:36,149 p=1371 u=erti n=ansible INFO| jsonrpc request: b'{"jsonrpc": "2.0", "method": "pop_messages", "id": "4d8b5ddd-3efa-4713-8c75-e1ebd6a78f6a", "params": [[], {}]}'
+2025-11-23 21:29:36,149 p=1371 u=erti n=ansible INFO| jsonrpc response: {"jsonrpc": "2.0", "id": "4d8b5ddd-3efa-4713-8c75-e1ebd6a78f6a", "result_type": "pickle", "result": "\udc80\u0004\udc95A\u0002\u0000\u0000\u0000\u0000\u0000\u0000]\udc94(\udc8c\u0004vvvv\udc94\udc8c\udcc4loaded cliconf plugin ansible_collections.cisco.ios.plugins.cliconf.ios from path /Users/erti/.ansible/collections/ansible_collections/cisco/ios/plugins/cliconf/ios.py for network_os cisco.ios.ios\udc94\udc86\udc94\udc8c\u0003log\udc94\udc8c\"network_os is set to cisco.ios.ios\udc94\udc86\udc94\udc8c\u0007warning\udc94\udc8c\udcd1Persistent connection logging is enabled for 192.168.0.30. This will log ALL interactions to /Users/erti/Desktop/switch/network.log and WILL NOT redact sensitive configuration like passwords. USE WITH CAUTION!\udc94\udc86\udc94h\u0001\udc8c\u0017ssh type is set to auto\udc94\udc86\udc94h\u0001\udc8c\u0016autodetecting ssh_type\udc94\udc86\udc94h\u0001\udc8c\u001dssh type is now set to libssh\udc94\udc86\udc94e."}
+2025-11-23 21:29:36,236 p=1364 u=erti n=ansible INFO| network_os is set to cisco.ios.ios
+2025-11-23 21:29:59,851 p=1364 u=erti n=ansible WARNING| [WARNING]: Persistent connection logging is enabled for 192.168.0.30. This will log ALL interactions to /Users/erti/Desktop/switch/network.log and WILL NOT redact sensitive configuration like passwords. USE WITH CAUTION!
+
+2025-11-23 21:29:59,851 p=1364 u=erti n=ansible ERROR| [ERROR]: Task failed: Module failed: non-zero return code
+Origin: /Users/erti/Desktop/switch/play.yml:6:7
+
+4
+5   tasks:
+6     - name: login
+        ^ column 7
+
+
+2025-11-23 21:29:59,851 p=1364 u=erti n=ansible INFO| fatal: [qtech_switch01]: FAILED! => {"changed": true, "cmd": "ssh -o StrictHostKeyChecking=no ertine@192.168.0.30", "delta": "0:00:23.132195", "end": "2025-11-23 21:29:59.806759", "msg": "non-zero return code", "rc": 255, "start": "2025-11-23 21:29:36.674564", "stdout": "\r\nPassword(1-16 chars):*****\u001b[2J\u001b[1;1H\r\nqtech>", "stdout_lines": ["", "Password(1-16 chars):*****\u001b[2J\u001b[1;1H", "qtech>"]}
+2025-11-23 21:29:59,851 p=1364 u=erti n=ansible INFO| ...ignoring
+2025-11-23 21:29:59,853 p=1364 u=erti n=ansible INFO| TASK [output] *************************************************************************************************************************
+2025-11-23 21:29:59,929 p=1364 u=erti n=ansible INFO| ok: [qtech_switch01] => {
+    "result.stdout_lines": [
+        "",
+        "Password(1-16 chars):*****\u001b[2J\u001b[1;1H",
+        "qtech>"
+    ]
+}
+2025-11-23 21:29:59,931 p=1371 u=erti n=ansible INFO| jsonrpc request: b'{"jsonrpc": "2.0", "method": "reset", "id": "68a98d4f-149f-4f96-9e19-4d2dd266ca1a", "params": [[], {}]}'
+2025-11-23 21:29:59,931 p=1371 u=erti n=ansible INFO| jsonrpc response: {"jsonrpc": "2.0", "id": "68a98d4f-149f-4f96-9e19-4d2dd266ca1a", "result_type": "pickle", "result": "\udc80\u0004N."}
+2025-11-23 21:29:59,932 p=1364 u=erti n=ansible INFO| PLAY RECAP ****************************************************************************************************************************
+2025-11-23 21:29:59,932 p=1364 u=erti n=ansible INFO| qtech_switch01             : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=1   
+2025-11-23 21:30:00,032 p=1371 u=erti n=ansible INFO| resetting persistent connection for socket_path /Users/erti/.ansible/pc/e85284b3ba
+2025-11-23 21:30:00,033 p=1371 u=erti n=ansible INFO| reset call on connection instance
+2025-11-23 21:30:00,033 p=1371 u=erti n=ansible INFO| shutdown complete
