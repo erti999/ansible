@@ -1,0 +1,16 @@
+---
+- name: Проверка роли
+  hosts: cisco
+  gather_facts: no
+  vars_files:
+    - "../inventory/group_vars/main.yml"
+
+  tasks:
+    - name: Получение времени с коммутатора
+      cisco.ios.ios_command:
+        commands: show clock
+      register: result
+
+    - name: Вывод времени на экран
+      debug:
+        msg: "{{ result.stdout[0] }}"
