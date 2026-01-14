@@ -1,0 +1,31 @@
+---
+- name: Простой плейбук
+  hosts: cisco
+  gather_facts: no
+  vars_files:
+    - "../inventory/group_vars/main.yml"
+
+  tasks:
+    - name: Отправка команд
+      cisco.ios.ios_command:
+        commands:
+          - show version | include Version
+          - show version | include uptime
+          - show version | include image
+          - show version | include Processor.board.ID
+          - show inventory | include PID
+      register: result
+    
+    - name: Создаем словарь с инфой
+      set_fact:
+        info:
+          Device: "{{ inventory_hostname }}"
+          IP: "{{ ansible_host }}"
+          ios_version: "{{ result.stdout[0] }}"
+          Uptime: "{{ result.stdout[1] }}"
+          Image: "{{ result.stdout[2] }}"
+          Serial: "{{ result.stdout[3] }}"
+    
+    - name: Вывод информации
+      debug:
+        var: info

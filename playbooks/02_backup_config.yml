@@ -1,0 +1,30 @@
+---
+- name: Backup playbook
+  hosts: cisco
+  gather_facts: no
+  vars_files:
+    - "../inventory/group_vars/main.yml"
+
+  tasks:
+    - name: Создаем папку бекапов
+      file:
+        path: backups
+        state: directory
+      delegate_to: localhost
+      run_once: true
+    
+    - name: Получаем running-config
+      cisco.ios.ios_command:
+        commands:
+          - show running-config
+      register: running_config
+    
+    - name: Сохраняем running-config
+      copy:
+        content: "{{ running_config.stdout[0] }}"
+        dest: "backups/{{ inventory_hostname }}_running.cfg"
+      delegate_to: localhost
+
+    - name: Выводим сообщение
+      debug:
+        msg: "Backup сохранен в файле: backups/{{ inventory_hostname }}_running.cfg"
