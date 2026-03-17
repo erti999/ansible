@@ -1,0 +1,18 @@
+---
+- name: Скрипт
+  hosts: qtech
+  gather_facts: no
+  vars_files:
+    - "../inventory/group_vars/main.yml"
+
+  tasks:
+    - name: Запуск скрипта Netmiko
+      ansible.builtin.script:
+        cmd: "../switchscript.py --device {{ ansible_host }}"
+        executable: "/home/ertine/Desktop/ansible/venv/bin/python3.12"
+      delegate_to: localhost
+      register: result
+      
+    - name: Вывод скрипта
+      ansible.builtin.debug:
+        var: result.stdout_lines
